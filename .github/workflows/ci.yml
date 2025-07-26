@@ -25,7 +25,7 @@ jobs:
           pre-commit install
 
       - name: Run Pre-commit Hooks
-        run: pre-commit run --all-files
+        run: pre-commit run --all-files --show-diff-on-failure --color always
 
   build-package:
     name: Build Python Package
