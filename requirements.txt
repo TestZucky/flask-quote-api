@@ -5,3 +5,7 @@ pre-commit
 black
 isort
 mypy
+pytest-cov
+bandit
+safety
+build
