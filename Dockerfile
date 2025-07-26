@@ -1,18 +1,20 @@
-# Use an official Python runtime as a base image
-FROM python:3.10-slim
+# Start from base image
+FROM python:3.11-slim
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy current directory contents into the container at /app
+# Install pip, build, and wheel
+RUN pip install --upgrade pip build
+
+# Copy pyproject.toml and optional poetry.lock (if using poetry)
+COPY pyproject.toml ./
+
+# Install project dependencies
+RUN pip install .
+
+# Copy the rest of the code
 COPY . .
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --upgrade pip \
- && pip install -r requirements.txt
-
-# Expose the port Flask runs on
-EXPOSE 5000
-
-# Run app.py when the container launches
+# Run your application
 CMD ["python", "app/main.py"]
