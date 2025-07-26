@@ -1,8 +1,15 @@
+import pytest
 from app.main import app
 
 
-def test_home():
-    client = app.test_client()
+@pytest.fixture
+def client():
+    with app.test_client() as client:
+        yield client
+
+
+def test_home(client):
     response = client.get('/')
     assert response.status_code == 200
-    assert "quote" in response.get_json()
+    data = response.get_json()
+    assert "quote" in data
