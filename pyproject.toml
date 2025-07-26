@@ -1,0 +1,21 @@
+[project]
+name = "flask_quote_api"
+version = "0.1.0"
+description = "Flask quote app"
+authors = [{ name="Zucky", email="zucky@email.com" }]
+dependencies = [
+    "flask",
+    "pytest",
+    "flake8",
+    "pre-commit",
+    "black",
+    "isort",
+    "mypy",
+    "pytest-cov",
+    "bandit",
+    "safety"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

@@ -12,6 +12,7 @@ QUOTES = [
     "Experience is the name everyone gives to their mistakes.",
     "In order to be irreplaceable, one must always be different.",
     "Simplicity is the soul of efficiency.",
+    "The best way to predict the future is to invent it.",
 ]
 
 
@@ -22,4 +23,4 @@ def home():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=5000)
