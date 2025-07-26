@@ -1,7 +1,9 @@
 from flask import Flask, jsonify
 import random
 
+
 app = Flask(__name__)
+
 
 QUOTES = [
     "Stay hungry, stay foolish.",
@@ -13,9 +15,11 @@ QUOTES = [
     "Simplicity is the soul of efficiency.",
 ]
 
+
 @app.route('/')
 def home():
     return jsonify({"quote": random.choice(QUOTES)})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
