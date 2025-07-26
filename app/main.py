@@ -1,5 +1,6 @@
-from flask import Flask, jsonify
 import random
+
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
@@ -14,11 +15,11 @@ QUOTES = [
 ]
 
 
-@app.route('/')
+@app.route("/")
 def home():
     """Return a random quote as JSON."""
     return jsonify({"quote": random.choice(QUOTES)})
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
